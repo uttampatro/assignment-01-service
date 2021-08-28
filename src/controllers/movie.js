@@ -16,6 +16,7 @@ const creatingMovie =  async (req, res) => {
         })
         return res.json(movie)
     } catch (error) {
+        console.log(error)
         return res.status(500).json({
             success: false,
             message: 'Something went wrong',
@@ -28,6 +29,7 @@ const getAllMovie = async (req, res) => {
         const movieList = await fetchAllMovie()
         return res.json(movieList)
     } catch (error) {
+        console.log(error)
         return res.status(500).json({
             success: false,
             message: 'Something went wrong',
