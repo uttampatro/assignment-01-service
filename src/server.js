@@ -35,7 +35,7 @@ mongoose.connect(
 
 //api middleware
 app.get('/', function (req, res) {
-    res.render('index', {});
+    res.send('server up and running')
 });
 app.use('/v1', v1Router)
 
