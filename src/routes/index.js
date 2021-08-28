@@ -5,7 +5,7 @@ const router = express.Router();
 
 app.get('/', function (req, res) {
     res.render('index', {});
-  });
+});
 
 router.post('/createMovie', creatingMovie)
 router.get('/getMovieList', getAllMovie)
