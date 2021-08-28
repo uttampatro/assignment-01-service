@@ -34,6 +34,9 @@ mongoose.connect(
 );
 
 //api middleware
+app.get('/', function (req, res) {
+    res.render('index', {});
+});
 app.use('/v1', v1Router)
 
 //listener
