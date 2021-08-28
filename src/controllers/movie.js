@@ -1,4 +1,4 @@
-const { createMovie, fetchAllMovie, fetchMovie } = require("../services/MovieService")
+const { createMovie, fetchAllMovie, fetchMovie } = require("../../src/services/movieService")
 
 const creatingMovie =  async (req, res) => {
     try {

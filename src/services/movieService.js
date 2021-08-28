@@ -1,4 +1,4 @@
-const Movie = require('../entity/Movie')
+const Movie = require('../../src/entity/Movie')
 
 const createMovie = async ({name, releaseYear, language, imageUrl, videoUrl}) => {
     const movie = new Movie({
