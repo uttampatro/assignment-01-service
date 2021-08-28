@@ -1,6 +1,5 @@
 //import
 const express = require("express");
-const http = require('http');
 const mongoose = require("mongoose");
 const cookieParser = require('cookie-parser')
 const dotenv = require("dotenv");
@@ -9,7 +8,6 @@ const cors = require("cors");
 
 //app config
 const app = express();
-const server = http.createServer(app);
 const port = process.env.PORT || 5000;
 
 dotenv.config();
@@ -39,4 +37,4 @@ mongoose.connect(
 app.use('/v1', v1Router)
 
 //listener
-server.listen(port, () => console.log(`Server is up and running on  ${port}`));
+app.listen(port, () => console.log(`Server is up and running on  ${port}`));

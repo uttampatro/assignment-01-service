@@ -1,18 +1,45 @@
-const movieService = require("../services/movieService")
+const { createMovie, fetchAllMovie, fetchMovie } = require("../services/MovieService")
 
-const createMovie =  async (req, res) => {
+const creatingMovie =  async (req, res) => {
     try {
         const name = req.body.name
-        const releaseDate = req.body.releaseDate
+        const releaseYear = req.body.releaseYear
         const language = req.body.language
         const imageUrl = req.body.imageUrl
         const videoUrl = req.body.videoUrl
-        const movie = await movieService({
+        const movie = await createMovie({
             name: name,
-            releaseDate: releaseDate,
+            releaseYear: releaseYear,
             language: language,
             imageUrl:imageUrl ,
             videoUrl: videoUrl
+        })
+        return res.json(movie)
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: 'Something went wrong',
+        });
+    }
+}
+
+const getAllMovie = async (req, res) => {
+    try {
+        const movieList = await fetchAllMovie()
+        return res.json(movieList)
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: 'Something went wrong',
+        });
+    }
+}
+
+const getMovie = async (req, res) => {
+    try {
+        const id = req.params.id
+        const movie =  await fetchMovie({
+            _id: id
         })
         return res.json(movie)
     } catch (error) {
@@ -24,4 +51,4 @@ const createMovie =  async (req, res) => {
     }
 }
 
-module.exports = createMovie
+module.exports = {creatingMovie, getAllMovie, getMovie}
