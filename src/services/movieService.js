@@ -9,7 +9,7 @@ const createMovie = async ({name, releaseYear, language, imageUrl, videoUrl}) =>
 }
 const fetchAllMovie = async ({limit, page}) => {
     const movieList = await Movie.find().skip(page > 0 ? ( ( page - 1 ) * limit ) : 0).limit(limit).exec() 
-    const totalMovieCount = await Movie.count()
+    const totalMovieCount = await Movie.countDocuments()
     return { movieList: movieList, pagination:{ limit, page, count: totalMovieCount }}
 }
 const fetchMovie = async (id) => {
