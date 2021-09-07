@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const movieSchema = new Schema({
     name: {
@@ -7,7 +7,7 @@ const movieSchema = new Schema({
         required: true,
         max: 255,
         min: 3,
-      },
+    },
     releaseYear: {
         type: String,
         required: true,
@@ -31,7 +31,7 @@ const movieSchema = new Schema({
         required: true,
         max: 255,
         min: 3,
-    }
-})
+    },
+});
 
-module.exports = mongoose.model('movie',movieSchema)
+module.exports = mongoose.model('movie', movieSchema);
