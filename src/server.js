@@ -13,7 +13,12 @@ const port = process.env.PORT || 5000;
 dotenv.config();
 
 //Middleware
-app.use(cors());
+app.use(
+    cors({
+        origin: '*',
+        credentials: true,
+    })
+);
 app.use(express.json());
 app.use(cookieParser());
 
