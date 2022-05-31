@@ -87,6 +87,7 @@ const generateSignedUrl = (req, res) => {
                 signedRequest: data,
                 url: `https://${process.env.S3_BUCKET}.s3.amazonaws.com/${destinationKey}`,
             };
+            console.log(returnData)
             res.write(JSON.stringify(returnData));
             res.end();
         });
